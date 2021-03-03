@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Products</h3>
+<p>
+    <a th:href="@{/products/create}">
+        Add new products
+    </a>
+</p>
+<form action="/products/search" method="post">
+    <input type="text" name="name" placeholder="Input name search">
+    <input type="submit" value="Search Product">
+</form>
+
+<table id = "products">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${productList}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.description}"></td>
+        <td><a th:href="@{/products/edit(id=${product.getId()})}">edit</a></td>
+        <td><a onclick ="return confirm('Bạn có chắc chắn muốn xóa không?')" th:href="@{/products/delete(id=${product.getId()})}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
