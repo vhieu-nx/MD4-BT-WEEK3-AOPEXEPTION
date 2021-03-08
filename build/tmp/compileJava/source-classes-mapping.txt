@@ -1,9 +1,9 @@
 model/Product.java
  model.Product
-config/AppInit.java
- config.AppInit
 service/product/IProductService.java
  service.product.IProductService
+config/AppInit.java
+ config.AppInit
 service/IGeneralService.java
  service.IGeneralService
 controller/ProductController.java

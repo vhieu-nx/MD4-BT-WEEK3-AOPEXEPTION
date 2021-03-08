@@ -11,10 +11,10 @@
         <td>Price</td>
         <td>Description</td>
     </tr>
-    <tr>
-        <td th:text="${product.name}"></td>
-        <td th:text="${product.price}"></td>
-        <td th:text="${product.description}"></td>
+    <tr th:each="p : ${product}">
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.price}"></td>
+        <td th:text="${p.description}"></td>
     </tr>
 </table>
 </body>

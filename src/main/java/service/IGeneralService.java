@@ -8,5 +8,5 @@ public interface IGeneralService<T> {
     void update(T model);
     void save(T model);
     void remove(int id);
-    T searchByName(String name);
+    List<T> searchByName(String name);
 }

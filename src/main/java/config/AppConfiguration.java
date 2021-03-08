@@ -76,26 +76,27 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         return entityManagerFactory.createEntityManager();
     }
 
-    @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("model");
-        sessionFactory.setHibernateProperties(additionalProperties());
-
-        return sessionFactory;
-    }
-
+    //hibernate
 //    @Bean
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
-//        LocalContainerEntityManagerFactoryBean c = new LocalContainerEntityManagerFactoryBean();
-//        c.setDataSource(dataSource());
-//        c.setPackagesToScan("model");
-//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        c.setJpaVendorAdapter(vendorAdapter);
-//        c.setJpaProperties(additionalProperties());
-//        return c;
+//    public LocalSessionFactoryBean sessionFactory() {
+//        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+//        sessionFactory.setDataSource(dataSource());
+//        sessionFactory.setPackagesToScan("model");
+//        sessionFactory.setHibernateProperties(additionalProperties());
+//
+//        return sessionFactory;
 //    }
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
+        LocalContainerEntityManagerFactoryBean c = new LocalContainerEntityManagerFactoryBean();
+        c.setDataSource(dataSource());
+        c.setPackagesToScan("model");
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        c.setJpaVendorAdapter(vendorAdapter);
+        c.setJpaProperties(additionalProperties());
+        return c;
+    }
 
     @Bean
     public DataSource dataSource(){
@@ -113,13 +114,13 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         return properties;
     }
 
-//    @Bean
-//    public PlatformTransactionManager platformTransactionManager(EntityManagerFactory managerFactory){
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(managerFactory);
-//        return transactionManager;
-//
-//    }
+    @Bean
+    public PlatformTransactionManager platformTransactionManager(EntityManagerFactory managerFactory){
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(managerFactory);
+        return transactionManager;
+
+    }
 
     @Bean
     public IProductService studentService(){

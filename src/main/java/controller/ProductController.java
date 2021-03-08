@@ -58,8 +58,8 @@ public class ProductController {
     //search
     @PostMapping("search")
     public ModelAndView searchProductByName(@RequestParam String name){
-        Product product = productService.searchByName(name);
-        if(product == null) return new ModelAndView("error-404");
-        else return new ModelAndView("search", "product",product);
+        List<Product> products = productService.searchByName(name);
+        if(products.size() == 0) return new ModelAndView("error-404");
+        else return new ModelAndView("search", "product",products);
     }
 }
