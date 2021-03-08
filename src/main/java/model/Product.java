@@ -1,6 +1,14 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private int price;
@@ -14,6 +22,12 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    public Product(String name, int price, String description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
     }
 
     public int getId() {

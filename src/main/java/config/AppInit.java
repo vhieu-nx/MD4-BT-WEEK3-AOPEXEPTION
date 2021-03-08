@@ -1,6 +1,6 @@
 package config;
-
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
@@ -18,3 +18,4 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         return new String[]{"/"};
     }
 }
+

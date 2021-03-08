@@ -31,8 +31,6 @@ public class ProductController {
     }
     @PostMapping("create")
     public ModelAndView create(@ModelAttribute Product product){
-        int id = (int)(Math.random()*10000);
-        product.setId(id);
         productService.save(product);
         ModelAndView modelAndView = new ModelAndView("create", "product", new Product());
         return modelAndView;
@@ -48,7 +46,7 @@ public class ProductController {
     @PostMapping("edit")
     public ModelAndView edit(@RequestParam Integer id, @ModelAttribute Product product){
         product.setId(id);
-        productService.update(id, product);
+        productService.update(product);
         return new ModelAndView("redirect:/products");
     }
     //delete
