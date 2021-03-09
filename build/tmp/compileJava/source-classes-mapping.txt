@@ -1,14 +1,24 @@
-model/Product.java
- model.Product
-service/product/IProductService.java
- service.product.IProductService
-config/AppInit.java
- config.AppInit
-service/IGeneralService.java
- service.IGeneralService
-controller/ProductController.java
- controller.ProductController
-config/AppConfiguration.java
- config.AppConfiguration
-service/product/ProductService.java
- service.product.ProductService
+com/codegym/config/AppConfiguration.java
+ com.codegym.config.AppConfiguration
+com/codegym/service/IGeneralService.java
+ com.codegym.service.IGeneralService
+com/codegym/service/product/IProductService.java
+ com.codegym.service.product.IProductService
+com/codegym/config/AppInit.java
+ com.codegym.config.AppInit
+com/codegym/model/Category.java
+ com.codegym.model.Category
+com/codegym/repository/IProductRepository.java
+ com.codegym.repository.IProductRepository
+com/codegym/model/Product.java
+ com.codegym.model.Product
+com/codegym/service/product/ProductService.java
+ com.codegym.service.product.ProductService
+com/codegym/controller/ProductController.java
+ com.codegym.controller.ProductController
+com/codegym/service/category/CategoryService.java
+ com.codegym.service.category.CategoryService
+com/codegym/service/category/ICategoryService.java
+ com.codegym.service.category.ICategoryService
+com/codegym/repository/ICategoryReposity.java
+ com.codegym.repository.ICategoryReposity

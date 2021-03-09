@@ -20,6 +20,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
+        <th>Category</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -29,11 +30,17 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${product.description}"></td>
+        <td th:text="${product.category.name}"></td>
         <td><a th:href="@{/products/edit(id=${product.getId()})}">edit</a></td>
         <td><a onclick ="return confirm('Bạn có chắc chắn muốn xóa không?')" th:href="@{/products/delete(id=${product.getId()})}">delete</a></td>
     </tr>
     </tbody>
 </table>
+<div>
+    <a th:href="@{'/products'(page=${productList.number - 1})}" th:if="${productList.hasPrevious()}">Previous</a>
+    <span th:text="${productList.number + 1}"></span>/<span th:text="${productList.totalPages}"></span>
+    <a th:href="@{'/products'(page=${productList.number + 1})}" th:if="${productList.hasNext()}">Next</a>
+</div>
 <footer th:replace="/layout :: footer"></footer>
 </body>
 </html>
