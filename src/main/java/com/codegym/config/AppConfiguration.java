@@ -1,5 +1,8 @@
 package com.codegym.config;
 
+import com.codegym.aspect.MyLogger;
+import com.codegym.formatter.CategoryFormatter;
+import com.codegym.service.category.ICategoryService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -7,8 +10,10 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -37,6 +42,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableJpaRepositories("com.codegym.repository")
 @EnableSpringDataWebSupport
+@EnableAspectJAutoProxy
 public class AppConfiguration extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 
@@ -123,6 +129,13 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(managerFactory);
         return transactionManager;
-
     }
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+//        super.addFormatters(registry);
+        registry.addFormatter(new CategoryFormatter(applicationContext.getBean(ICategoryService.class)));
+    }
+    //AOP
+    @Bean
+    public MyLogger myLogger(){return new MyLogger();}
 }

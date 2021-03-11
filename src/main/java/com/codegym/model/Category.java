@@ -13,6 +13,14 @@ public class Category {
     @OneToMany
     private List<Product> products;
 
+    public Category(Long id) {
+        this.id = id;
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
+
     public Category() {
     }
 

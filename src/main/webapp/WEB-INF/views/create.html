@@ -27,9 +27,8 @@
         <div>
             <label>Category</label>
             <select th:field="*{category}">
-                <option th:each="c:${listCategory}" th:value="${c}" th:text="${c.name}"></option>
+                <option th:each="c:${listCategory}" th:value="${c.id}" th:text="${c.name}"></option>
             </select>
-<!--            <input type="text" />-->
         </div>
         <input type="submit" value="Save">
     </form>

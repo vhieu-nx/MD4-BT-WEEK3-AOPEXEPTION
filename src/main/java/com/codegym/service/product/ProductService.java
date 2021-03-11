@@ -1,5 +1,7 @@
 package com.codegym.service.product;
 
+import com.codegym.exception.NotFoundException;
+import com.codegym.model.Category;
 import com.codegym.model.Product;
 import com.codegym.repository.IProductRepository;
 import org.hibernate.Session;
@@ -52,8 +54,10 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product findById(Long id) {
-        return productRepository.findOne(id);
+    public Product findById(Long id) throws NotFoundException {
+        Product product = productRepository.findOne(id);
+        if (product != null) return product;
+        else throw new NotFoundException();
     }
     //hibernate
 //        Session session = sessionFactory.openSession();
@@ -130,6 +134,15 @@ public class ProductService implements IProductService {
     public void deleteById(Long id) {
         productRepository.delete(id);
     }
+
+    @Override
+    public List<Product> findByProductName(String name) {
+        return productRepository.findProductByName(name);
+    }
+    @Override
+    public List<Product> findByCategoryName(Long id) {
+        return productRepository.findProductByCategoryName(id);
+    }
     //hibernate
 //        Session session = sessionFactory.openSession();
 //        Transaction transaction = session.beginTransaction();
@@ -152,10 +165,6 @@ public class ProductService implements IProductService {
 //            entityManager.remove(product);
 //        }
 
-    @Override
-    public List<Product> findProductName(String name) {
-        return productRepository.findProductByName(name);
-    }
 
     //JPA
 //    @Override

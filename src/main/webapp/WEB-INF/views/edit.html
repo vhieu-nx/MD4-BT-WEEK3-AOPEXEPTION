@@ -26,7 +26,9 @@
         </div>
         <div>
             <label>Category</label>
-            <input type="text" th:field="*{category.id}"/>
+            <select th:field="*{category}">
+                <option th:each="c:${listCategory}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select>
         </div>
         <input type="submit" value="Modify">
     </form>
