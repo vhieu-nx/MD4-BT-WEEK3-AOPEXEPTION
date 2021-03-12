@@ -1190,28 +1190,37 @@ friend_id</ColNames>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="349" parent="295" name="description">
+    <column id="349" parent="295" name="date">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>date|0s</DataType>
     </column>
-    <column id="350" parent="295" name="name">
+    <column id="350" parent="295" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="351" parent="295" name="price">
+    <column id="351" parent="295" name="name">
       <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="352" parent="295" name="price">
+      <Position>5</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="295" name="category_id">
-      <Position>5</Position>
+    <column id="353" parent="295" name="quantity">
+      <Position>6</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="354" parent="295" name="category_id">
+      <Position>7</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <index id="353" parent="295" name="FKexqqeaksnmmku5py194ywp140">
+    <index id="355" parent="295" name="FKexqqeaksnmmku5py194ywp140">
       <ColNames>category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="354" parent="295" name="PRIMARY">
+    <key id="356" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

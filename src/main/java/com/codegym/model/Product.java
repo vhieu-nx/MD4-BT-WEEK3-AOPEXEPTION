@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 public class Product {
@@ -10,24 +11,30 @@ public class Product {
     private String name;
     private int price;
     private String description;
+    private Date date;
+    private int quantity;
     @ManyToOne
     private Category category;
 
     public Product() {
     }
 
-    public Product(Long id, String name, int price, String description, Category category) {
+    public Product(Long id, String name, int price, String description, Date date, int quantity, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
+        this.date = date;
+        this.quantity = quantity;
         this.category = category;
     }
 
-    public Product(String name, int price, String description, Category category) {
+    public Product(String name, int price, String description, Date date, int quantity, Category category) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.date = date;
+        this.quantity = quantity;
         this.category = category;
     }
 
@@ -69,5 +76,21 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

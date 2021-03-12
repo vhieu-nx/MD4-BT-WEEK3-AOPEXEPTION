@@ -51,6 +51,29 @@ public class ProductController {
         modelAndView.addObject("product", new Product());
         return modelAndView;
     }
+    //top 5 product by price
+    @GetMapping("/top5")
+    public ModelAndView showTop5() {
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("productList", productService.findTop5());
+        modelAndView.addObject("category", new Category());
+        return modelAndView;
+    }
+    //top 5 product by date
+    @GetMapping("top5bydate")
+    public ModelAndView showTop5ByDate(){
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("productList", productService.findTop5ByDate());
+        modelAndView.addObject("category", new Category());
+        return modelAndView;
+    }
+    //tong tien
+    @GetMapping("sum")
+    public ModelAndView getSumPrice(){
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("sum", productService.getSumPrice());
+        return modelAndView;
+    }
 
     @PostMapping("/create")
     public ModelAndView create(@ModelAttribute Product product) {

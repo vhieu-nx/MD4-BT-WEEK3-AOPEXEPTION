@@ -53,6 +53,29 @@ public class ProductService implements IProductService {
         return productRepository.findAll(pageable);
     }
 
+//        @Override
+//    public List<Product> findTop5() {
+//        return productRepository.findTop5ByOrderByPriceDesc();
+//    }
+
+    @Override
+    public List<Product> findTop5() {
+        return productRepository.getProductByPriceExp(5);
+    }
+
+    @Override
+    public List<Product> findTop5ByDate() {
+        return productRepository.findTop5ByOrderByDateDesc();
+    }
+
+    @Override
+    public int getSumPrice() {
+        int sum = 0;
+        sum = productRepository.getSumPrice();
+        return sum;
+    }
+
+
     @Override
     public Product findById(Long id) throws NotFoundException {
         Product product = productRepository.findOne(id);
@@ -139,6 +162,7 @@ public class ProductService implements IProductService {
     public List<Product> findByProductName(String name) {
         return productRepository.findProductByName(name);
     }
+
     @Override
     public List<Product> findByCategoryName(Long id) {
         return productRepository.findProductByCategoryName(id);

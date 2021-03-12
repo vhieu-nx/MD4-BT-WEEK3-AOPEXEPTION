@@ -25,6 +25,14 @@
             <input type="text" th:field="*{description}"/>
         </div>
         <div>
+            <label>Date</label>
+            <input type="date" th:field="*{date}"/>
+        </div>
+        <div>
+            <label>Quantity</label>
+            <input type="text" th:field="*{quantity}"/>
+        </div>
+        <div>
             <label>Category</label>
             <select th:field="*{category}">
                 <option th:each="c:${listCategory}" th:value="${c.id}" th:text="${c.name}"></option>

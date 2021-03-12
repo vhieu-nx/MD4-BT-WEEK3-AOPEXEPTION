@@ -18,5 +18,17 @@ public interface IProductRepository extends PagingAndSortingRepository<Product, 
     @Query(value = "select  * from product where product.name like ?", nativeQuery = true)
     List<Product> findProductByName(String name);
 
+    //top 5 san pham theo gia
+    @Query(value = "select * from product order by price desc limit ?", nativeQuery = true)
+    List<Product> getProductByPriceExp(int limit);
 
+    //repo ho tro
+    List<Product> findTop5ByOrderByPriceDesc();
+
+    //top 5 san pham theo thoi gian
+    List<Product> findTop5ByOrderByDateDesc();
+
+    //tong tien
+    @Query(value = "select sum(price) from Product ", nativeQuery = false)
+    int getSumPrice();
 }
