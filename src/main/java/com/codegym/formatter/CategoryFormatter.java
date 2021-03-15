@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import java.text.ParseException;
 import java.util.Locale;
 @Component
-
 public class CategoryFormatter implements Formatter<Category> {
     private ICategoryService categoryService;
     @Autowired
