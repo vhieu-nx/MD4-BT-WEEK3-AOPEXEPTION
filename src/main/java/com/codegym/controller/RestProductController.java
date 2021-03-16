@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -30,8 +31,16 @@ public class RestProductController {
         return new ResponseEntity<>(productService.findALl(), HttpStatus.OK);
     }
 
+    @GetMapping("/list")
+    public ModelAndView getList(){
+        ModelAndView modelAndView = new ModelAndView("ajax");
+        modelAndView.addObject("list", productService.findALl());
+        modelAndView.addObject("category", new Category());
+        return modelAndView;
+    }
+
     //create
-    @PostMapping()
+    @PostMapping("/")
     public ResponseEntity<Product> createNewProduct (@RequestBody Product product){
         productService.save(product);
         return new ResponseEntity<>(HttpStatus.CREATED);
