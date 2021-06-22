@@ -9,6 +9,11 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+apply plugin: 'java'
+compileJava.options.encoding = 'UTF-8'
 
 dependencies {
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
