@@ -1,7 +1,7 @@
 com/codegym/repository/IProductRepository.java
  com.codegym.repository.IProductRepository
-com/codegym/config/AppConfiguration.java
- com.codegym.config.AppConfiguration
+com/codegym/service/IGeneralService.java
+ com.codegym.service.IGeneralService
 com/codegym/aspect/MyLogger.java
  com.codegym.aspect.MyLogger
 com/codegym/model/Product.java
@@ -14,8 +14,8 @@ com/codegym/model/Category.java
  com.codegym.model.Category
 com/codegym/controller/RestProductController.java
  com.codegym.controller.RestProductController
-com/codegym/config/AppInit.java
- com.codegym.config.AppInit
+com/codegym/service/product/ProductService.java
+ com.codegym.service.product.ProductService
 com/codegym/controller/ProductController.java
  com.codegym.controller.ProductController
 com/codegym/repository/ICategoryRepository.java
@@ -26,7 +26,7 @@ com/codegym/formatter/CategoryFormatter.java
  com.codegym.formatter.CategoryFormatter
 com/codegym/service/category/CategoryService.java
  com.codegym.service.category.CategoryService
-com/codegym/service/IGeneralService.java
- com.codegym.service.IGeneralService
-com/codegym/service/product/ProductService.java
- com.codegym.service.product.ProductService
+com/codegym/config/AppInit.java
+ com.codegym.config.AppInit
+com/codegym/config/AppConfiguration.java
+ com.codegym.config.AppConfiguration

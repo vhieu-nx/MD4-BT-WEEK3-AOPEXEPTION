@@ -111,10 +111,10 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/productmanager");
         dataSource.setUsername( "root" );
-        dataSource.setPassword( "hunghip12" );
+        dataSource.setPassword( "123456" );
         return dataSource;
     }
     Properties additionalProperties() {
